@@ -1,12 +1,10 @@
 
 import "./style.scss"
 
-const index = () => {
+const index = ({type,placeholder,className,value, onChange}) => {
 
     return(
-        <aside>
-           
-        </aside>
+       <input value={value ? value : ''}onChange={(e)=>onChange(e.target.value)} type={type ? type : 'text'} className={className ? className : ''}  placeholder={placeholder ? placeholder : ''}/>
     );
 };
 

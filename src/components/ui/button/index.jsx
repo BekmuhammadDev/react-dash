@@ -1,11 +1,11 @@
 import "./style.scss"
 
-const index = () => {
+const index = ({className, type,text,fun,children}) => {
 
     return(
-        <aside>
-           
-        </aside>
+        <button type={type ? type : 'button'} onClick={()=> fun && fun()} className={className && className}>
+           {text ? text : (children ? children : 'button')}
+        </button>
     );
 };
 

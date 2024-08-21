@@ -4,9 +4,9 @@ import "./style.scss"
 const index = () => {
 
     return(
-        <aside>
-           
-        </aside>
+        <div>
+           users
+        </div>
     );
 };
 

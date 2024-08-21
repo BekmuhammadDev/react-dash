@@ -51,6 +51,11 @@ export default defineConfig({
         replacement: fileURLToPath(new URL('./src/utils', import.meta.url)),
 
       },
+      {
+        find: "@reducer",
+        replacement: fileURLToPath(new URL('./src/reducer', import.meta.url)),
+
+      },
     ],
   },
 });
