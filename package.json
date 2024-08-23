@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server":"npx json-server --watch src/db/leads.json --port 3200"
+    "server": "npx json-server --watch src/db/leads.json --port 3200"
   },
   "dependencies": {
     "axios": "^1.7.4",

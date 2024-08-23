@@ -1,5 +1,6 @@
 import { useContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router";
+import {toast} from "react-toastify"
 import { leadsAPI } from "@service/leads";
 import { Loader, Datatable, Button, Modal } from "@components/ui";
 import { Input } from "@components/form"
@@ -31,11 +32,12 @@ const index = () => {
         }
     }
 
-    async function deleteLead(id){
+    async function deleteLead(id,){
         try {
             const response =await leadsAPI.delete(id);
             if (response.status === 200) {
                 useFetch();
+                toast.error("Lead deleted",{autoClose:2000})
             }
         } catch (error) {
             console.log(error);
@@ -43,11 +45,27 @@ const index = () => {
         }
     }
 
+    async function changeStatus(id,){
+        try {
+        const response=await leadsAPI.update(id,{status:true});
+            if(response.status===200){
+                useFetch();
+                toast.success("Successfully change",{autoClose:2000})
+            }
+        } catch (er) {
+            console.log(er);
+
+        }
+    }
+
+
+
     const [{ leads, status, loading, }, dispatch] = useReducer
     (reducer, states);
 
     useEffect(() => {
         useFetch();
+        toast.success("success add",{autoClose:2000})
     }, []);
 
 
@@ -68,7 +86,7 @@ const index = () => {
                 </form>
                 <Button fun={() => setModal({ type: 'OPEN' })} text="Add New leads" />
             </div>
-            {status === 'success' && <Datatable data={leads}  deleteItem={deleteLead}/>}
+            {status === 'success' && <Datatable data={leads}  deleteItem={deleteLead} changeStatus={changeStatus}/>}
 
 
         </>

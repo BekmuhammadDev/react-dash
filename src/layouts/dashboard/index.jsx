@@ -4,6 +4,9 @@ import { Outlet } from "react-router";
 import { useReducer } from "react";
 import { modalStore } from "@/context";
 import {states,reducer} from "@components/reducer/modal-reducer"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 import "./style.scss"
 import { Header, Section, Aside, Footer } from "@layouts";
 
@@ -29,7 +32,8 @@ const index = () => {
   return (
     <>
       <modalStore.Provider value={{ isOpen, setModal }}>
-        <Header />
+        <ToastContainer/>     
+         <Header />
         <Section className="flex">
 
           <Aside />
