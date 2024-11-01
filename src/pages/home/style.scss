@@ -1,0 +1,77 @@
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  
+    .carousel-slide-wrapper {
+      width: 1330px;
+      overflow: hidden;
+  
+      .carousel-slide {
+        display: flex;
+        transition: transform 0.5s ease-in-out; // Silliq burilish effektini qo'shdik
+      }
+  
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  
+    .prev-btn, .next-btn {
+      position: absolute;
+      top: 50%;
+      background-color: #ff0000; // tugma rangi
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      color: black !important;;
+      transform: translateY(-50%);
+  
+      &:hover {
+        background-color: #e60000; // tugmaga hover effekti
+      }
+    }
+  
+    .prev-btn {
+      left: 10px;
+    }
+  
+    .next-btn {
+      right: 10px;
+    }
+  
+    .nav-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+  
+      a {
+        margin: 0 10px;
+        text-decoration: none; // linklar uchun tag chizig'ini o'chiramiz
+        font-size: 18px;
+        padding-bottom: 5px;
+        position: relative;
+  
+        &.active {
+            background-color: #ffffff!important;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: red; // faqat active holatda chiziq chiziladi
+          }
+        }
+  
+        &:hover {
+          color: red; // linkni hover qilganda rangni o'zgartiramiz
+        }
+      }
+    }
+  }
+  
